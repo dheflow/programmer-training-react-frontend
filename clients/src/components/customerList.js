@@ -13,7 +13,7 @@ export default class AddTransactionForm extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3000/customerSelect")
+    axios.get("http://localhost:3001/customerSelect")
       .then(response => { 
         console.log(response); 
         this.setState({ customerList: response.data, isLoading: false }) 

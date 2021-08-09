@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    axios.get("http://localhost:3000/transaction")
+    axios.get("http://localhost:3001/transaction")
       .then(response => { 
         console.log(response); 
         this.setState({ transactions: response.data, isLoading: false }) 

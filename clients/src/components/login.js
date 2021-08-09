@@ -12,7 +12,7 @@ export const Login = () => {
   const [loginStatus, setLoginStatus] = useState("");
 
   const login = () => {
-    axios.post("http://localhost:3000/login", {
+    axios.post("http://localhost:3001/login", {
       username: username,
       password: password,
     }).then((response) => {

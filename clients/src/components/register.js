@@ -11,7 +11,7 @@ export const Register = () => {
   const [passwordReg, setPasswordReg] = useState("");
 
   const register = () => {
-    axios.post("http://localhost:3000/register", {
+    axios.post("http://localhost:3001/register", {
       name: nameReg,
       email: emailReg,
       username: usernameReg,

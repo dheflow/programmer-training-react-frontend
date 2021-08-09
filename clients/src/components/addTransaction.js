@@ -19,7 +19,7 @@ export const AddTransaction = () => {
     console.log(userName);
     axios({
       method: 'post',
-      url: 'http://localhost:3000/addTransactionForm',
+      url: 'http://localhost:3001/addTransactionForm',
       data: {
         transactionNumber: transactionNumber,
         transactionDate: transactionDate,
