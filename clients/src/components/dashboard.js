@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import AddTransaction from './addTransaction';
-import { Thead, Table, Tbody } from './Component.style';
+import { Link } from 'react-router-dom';
+import { Thead, Table, Tbody, LayoutPage, Button } from '../styles/Component.style';
 import axios from 'axios';
 
 export default class Dashboard extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { transactions: [], isLoading: true };
+    this.state = { 
+      transactions: [],
+      isLoading: true 
+    };
   }
 
   componentDidMount() {
@@ -49,8 +52,15 @@ export default class Dashboard extends Component {
     })
 
     return (
-      <div className="dashboard" style={dashboardText}>
-        <h1>Transaction</h1>
+      <LayoutPage>
+        <div className="top-section">
+          <h1>Transaction</h1>
+          <div className="add-data">
+            <Button className="green-button">
+              <Link to="/AddTransactionPage" className="add-button">Add Transaction</Link>
+            </Button>
+          </div>
+        </div>
         <Table>
           <Thead>
             <tr>
@@ -67,12 +77,7 @@ export default class Dashboard extends Component {
             {transactionList}
           </Tbody>
         </Table>
-        <AddTransaction />
-      </div>
+      </LayoutPage>
     )
   }
-}
-
-const dashboardText = {
-  textAlign: 'center',
 }

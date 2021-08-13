@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory, Link } from 'react-router-dom';
-import { Card, Button } from './Component.style';
+import { useHistory } from 'react-router-dom';
+import { Card, Button, FormInputGroup } from '../styles/Component.style';
 
 export const Login = () => {
   const history = useHistory();
@@ -29,29 +29,34 @@ export const Login = () => {
     <Card>
       <div className="login">
         <h1>Login</h1>
-        <label>Name</label>
-        <input 
-          type="text"
-          placeholder="Username..."
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input 
-          type="text"
-          placeholder="Password..."
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+        <FormInputGroup>
+          <label>Name</label>
+          <input 
+            type="text"
+            placeholder="Username..."
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+        </FormInputGroup>
+        
+        <FormInputGroup>
+          <label>Password</label>
+          <input 
+            type="password"
+            placeholder="Password..."
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </FormInputGroup>
 
         <div>
-          <Button onClick={login}>Login</Button>
+          <Button className="primary-button" onClick={login}>Login</Button>
         </div>
         <h4>{loginStatus}</h4>
 
-        <Link to="/">Back</Link>
+        {/* <Link to="/">Back</Link> */}
       
       </div>
     </Card>

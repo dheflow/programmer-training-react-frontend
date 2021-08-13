@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { SelectOption } from './Component.style';
+import { SelectOption } from '../styles/Component.style';
 
 export default class AddTransactionForm extends Component {
   constructor(props) {
