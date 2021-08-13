@@ -23,21 +23,21 @@ db.connect((err) => {
   console.log('MySQL Connected...');
 })
 
-//Register
-app.post("/register", (req,res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const username = req.body.username;
-  const password = req.body.password;
+// //Register
+// app.post("/register", (req,res) => {
+//   const name = req.body.name;
+//   const email = req.body.email;
+//   const username = req.body.username;
+//   const password = req.body.password;
 
-  db.query(
-    "INSERT INTO tb_users (name, email, username, password) VALUES (?,?,?,?)",
-    [name, email, username, password],
-    (err, result) => {
-      console.log(err);
-    }
-  );
-});
+//   db.query(
+//     "INSERT INTO tb_users (name, email, username, password) VALUES (?,?,?,?)",
+//     [name, email, username, password],
+//     (err, result) => {
+//       console.log(err);
+//     }
+//   );
+// });
 
 //Login
 app.post("/login", (req,res) => {
@@ -98,25 +98,33 @@ app.post("/addTransactionForm", (req, res) => {
   res.send(200, { message: 'ok' });
 });
 
-//user select
-app.get("/userSelect", (req,res) => {
+//UserList
+app.get("/UserSelect", (req,res) => {
   db.query("SELECT * FROM tb_users", (err, results, fields) => {
     if(err) throw err;
     res.send(JSON.stringify(results));
   });
 });
 
-//customer select
-app.get("/customerSelect", (req, res) => {
+//CustomerList
+app.get("/CustomerSelect", (req, res) => {
   db.query("SELECT * FROM tb_customer", (err, results, fields) => {
     if(err) throw err;
     res.send(JSON.stringify(results));
   });
 })
 
-//motor select
-app.get("/motorSelect", (req, res) => {
+//MotorList
+app.get("/MotorSelect", (req, res) => {
   db.query("SELECT * FROM tb_motor", (err, results, fields) => {
+    if(err) throw err;
+    res.send(JSON.stringify(results));
+  });
+})
+
+//BrandList
+app.get("/BrandSelect", (req, res) => {
+  db.query("SELECT * FROM tb_brand", (err, results, fields) => {
     if(err) throw err;
     res.send(JSON.stringify(results));
   });
